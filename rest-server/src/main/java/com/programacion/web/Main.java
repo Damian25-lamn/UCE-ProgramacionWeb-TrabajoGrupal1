@@ -1,5 +1,6 @@
 package com.programacion.web;
 
+import com.programacion.web.config.GlobalExceptionHandler;
 import com.programacion.web.service.*;
 import io.helidon.config.Config;
 import io.helidon.dbclient.DbClient;
@@ -44,7 +45,11 @@ public class Main {
             }
         });
 
-        // Registrar los servicios que vas a construir (User, Post, Comment)
+        // 2. REGISTRAR EL MANEJADOR GLOBAL DE EXCEPCIONES
+        // Esto atrapará cualquier excepción (Throwable) que ocurra en los endpoints y llamará a nuestro handler
+        routing.error(Throwable.class, GlobalExceptionHandler::handle);
+
+        // 3. Registro de tus servicios CRUD
         routing.register("/api/users", new UserService(dbClient));
         routing.register("/api/posts", new PostService(dbClient));
         routing.register("/api/comments", new CommentService(dbClient));
