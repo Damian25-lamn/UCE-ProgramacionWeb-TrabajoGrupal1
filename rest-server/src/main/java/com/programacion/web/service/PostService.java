@@ -14,7 +14,7 @@ import java.util.Optional;
 public class PostService implements HttpService {
 
     private final PostRepository repository;
-    private final UserRepository userRepository; // Para validar FK
+    private final UserRepository userRepository;
 
     public PostService(DbClient dbClient) {
         this.repository = new PostRepository(dbClient);
@@ -47,7 +47,6 @@ public class PostService implements HttpService {
     private void insert(ServerRequest request, ServerResponse response) {
         Post post = request.content().as(Post.class);
 
-        // Validación de FK: userId debe existir
         if (userRepository.findById(post.getUserId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("userId no existe"));
@@ -63,7 +62,6 @@ public class PostService implements HttpService {
         Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
         Post post = request.content().as(Post.class);
 
-        // Validación de FK: userId debe existir
         if (userRepository.findById(post.getUserId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("userId no existe"));

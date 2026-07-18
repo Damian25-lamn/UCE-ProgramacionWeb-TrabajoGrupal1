@@ -14,7 +14,7 @@ public class TodoRepository {
         this.dbClient = dbClient;
     }
 
-    // 1. OBTENER TODOS (GET /api/todos)
+    // GET /api/todos
     public List<Todo> findAll() {
         return dbClient.execute()
                 .query("SELECT id, user_id, title, completed FROM todos")
@@ -22,14 +22,14 @@ public class TodoRepository {
                 .toList();
     }
 
-    // 2. BUSCAR POR ID (GET /api/todos/{id})
+    // GET /api/todos/{id}
     public Optional<Todo> findById(Integer id) {
         return dbClient.execute()
                 .get("SELECT id, user_id, title, completed FROM todos WHERE id = ?", id)
                 .map(TodoMapper::mapRow);
     }
 
-    // 3. INSERTAR (POST /api/todos)
+    // POST /api/todos
     public Integer insert(Todo todo) {
         DbRow row = dbClient.execute()
                 .get("""
@@ -47,7 +47,7 @@ public class TodoRepository {
                 .get();
     }
 
-    // 4. ACTUALIZAR (PUT /api/todos/{id})
+    // PUT /api/todos/{id}
     public long update(Integer id, Todo todo) {
         return dbClient.execute()
                 .dml("""
@@ -63,7 +63,7 @@ public class TodoRepository {
                         id);
     }
 
-    // 5. ELIMINAR (DELETE /api/todos/{id})
+    // DELETE /api/todos/{id}
     public long delete(Integer id) {
         return dbClient.execute()
                 .dml("DELETE FROM todos WHERE id = ?", id);

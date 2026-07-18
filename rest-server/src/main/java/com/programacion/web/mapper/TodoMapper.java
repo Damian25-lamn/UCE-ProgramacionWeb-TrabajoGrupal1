@@ -7,9 +7,9 @@ public class TodoMapper {
     public static Todo mapRow(DbRow row) {
         return new Todo(
                 row.column("id").as(Integer.class).get(),
-                row.column("user_id").as(Integer.class).get(), // FK mapeada de la BD
+                row.column("user_id").as(Integer.class).get(),
                 row.column("title").as(String.class).get(),
-                row.column("completed").as(Boolean.class).get() // Booleano nativo
+                row.column("completed").as(Boolean.class).get()
         );
     }
 }

@@ -7,7 +7,7 @@ public class PhotoMapper {
     public static Photo mapRow(DbRow row) {
         return new Photo(
                 row.column("id").as(Integer.class).get(),
-                row.column("album_id").as(Integer.class).get(), // FK mapeada de la BD[cite: 1]
+                row.column("album_id").as(Integer.class).get(),
                 row.column("title").as(String.class).get(),
                 row.column("url").as(String.class).get(),
                 row.column("thumbnail_url").as(String.class).get()

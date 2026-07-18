@@ -15,7 +15,7 @@ public class PostRepository {
         this.dbClient = dbClient;
     }
 
-    // 1. OBTENER TODOS (GET /api/posts)
+    // GET /api/posts
     public List<Post> findAll() {
         return dbClient.execute()
                 .query("SELECT id, user_id, title, body FROM posts")
@@ -23,14 +23,14 @@ public class PostRepository {
                 .toList();
     }
 
-    // 2. BUSCAR POR ID (GET /api/posts/{id})
+    // GET /api/posts/{id}
     public Optional<Post> findById(Integer id) {
         return dbClient.execute()
                 .get("SELECT id, user_id, title, body FROM posts WHERE id = ?", id)
                 .map(PostMapper::mapRow);
     }
 
-    // 3. INSERTAR (POST /api/posts)
+    // POST /api/posts
     public Integer insert(Post post) {
         DbRow row = dbClient.execute()
                 .get("""
@@ -48,7 +48,7 @@ public class PostRepository {
                 .get();
     }
 
-    // 4. ACTUALIZAR (PUT /api/posts/{id})
+    // PUT /api/posts/{id}
     public long update(Integer id, Post post) {
         return dbClient.execute()
                 .dml("""
@@ -65,7 +65,7 @@ public class PostRepository {
 
     }
 
-    // 5. ELIMINAR (DELETE /api/posts/{id})
+    // DELETE /api/posts/{id}
     public long delete(Integer id) {
         return dbClient.execute()
                 .dml("DELETE FROM posts WHERE id = ?", id);

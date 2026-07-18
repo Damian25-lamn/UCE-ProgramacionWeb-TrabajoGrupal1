@@ -1,14 +1,26 @@
--- 1. Tabla de Usuarios
+--Tabla de Usuarios
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     username VARCHAR(100) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL,
     phone VARCHAR(50),
-    website VARCHAR(255)
+    website VARCHAR(255),
+    --Address
+    address_street VARCHAR(255),
+    address_suite VARCHAR(255),
+    address_city VARCHAR(255),
+    address_zipcode VARCHAR(50),
+    --Geo
+    geo_lat VARCHAR(50),
+    geo_lng VARCHAR(50),
+    --Company
+    company_name VARCHAR(255),
+    company_catch_phrase VARCHAR(255),
+    company_bs VARCHAR(255)
 );
 
--- 2. Tabla de Publicaciones (Relación: User 1 -> N Post)
+--Tabla de Publicaciones (Relación: User 1 -> N Post)
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -17,7 +29,7 @@ CREATE TABLE posts (
     CONSTRAINT fk_posts_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- 3. Tabla de Comentarios (Relación: Post 1 -> N Comment)
+--Tabla de Comentarios (Relación: Post 1 -> N Comment)
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     post_id INTEGER NOT NULL,
@@ -27,7 +39,7 @@ CREATE TABLE comments (
     CONSTRAINT fk_comments_post FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE
 );
 
--- 4. Tabla de Álbumes (Relación: User 1 -> N Album)
+--Tabla de Álbumes (Relación: User 1 -> N Album)
 CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -35,7 +47,7 @@ CREATE TABLE albums (
     CONSTRAINT fk_albums_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- 5. Tabla de Fotos (Relación: Album 1 -> N Photo)
+--Tabla de Fotos (Relación: Album 1 -> N Photo)
 CREATE TABLE photos (
     id SERIAL PRIMARY KEY,
     album_id INTEGER NOT NULL,
@@ -45,7 +57,7 @@ CREATE TABLE photos (
     CONSTRAINT fk_photos_album FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
 );
 
--- 6. Tabla de Tareas/Todos (Relación: User 1 -> N Todo)
+--Tabla de Tareas/Todos (Relación: User 1 -> N Todo)
 CREATE TABLE todos (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,

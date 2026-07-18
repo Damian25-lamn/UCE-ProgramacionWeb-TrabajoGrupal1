@@ -14,7 +14,7 @@ import java.util.Optional;
 public class TodoService implements HttpService {
 
     private final TodoRepository repository;
-    private final UserRepository userRepository; // Para validar FK
+    private final UserRepository userRepository;
 
     public TodoService(DbClient dbClient) {
         this.repository = new TodoRepository(dbClient);
@@ -47,7 +47,6 @@ public class TodoService implements HttpService {
     private void insert(ServerRequest request, ServerResponse response) {
         Todo todo = request.content().as(Todo.class);
 
-        // Validación de FK: userId debe existir
         if (userRepository.findById(todo.getUserId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("userId no existe"));
@@ -63,7 +62,6 @@ public class TodoService implements HttpService {
         Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
         Todo todo = request.content().as(Todo.class);
 
-        // Validación de FK: userId debe existir
         if (userRepository.findById(todo.getUserId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("userId no existe"));

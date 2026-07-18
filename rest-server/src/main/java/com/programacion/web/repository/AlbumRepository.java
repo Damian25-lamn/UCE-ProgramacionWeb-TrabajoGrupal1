@@ -14,7 +14,7 @@ public class AlbumRepository {
         this.dbClient = dbClient;
     }
 
-    // 1. OBTENER TODOS (GET /api/albums)
+    // GET /api/albums
     public List<Album> findAll() {
         return dbClient.execute()
                 .query("SELECT id, user_id, title FROM albums")
@@ -22,14 +22,14 @@ public class AlbumRepository {
                 .toList();
     }
 
-    // 2. BUSCAR POR ID (GET /api/albums/{id})
+    // GET /api/albums/{id}
     public Optional<Album> findById(Integer id) {
         return dbClient.execute()
                 .get("SELECT id, user_id, title FROM albums WHERE id = ?", id)
                 .map(AlbumMapper::mapRow);
     }
 
-    // 3. INSERTAR (POST /api/albums)
+    // POST /api/albums
     public Integer insert(Album album) {
         DbRow row = dbClient.execute()
                 .get("""
@@ -46,7 +46,7 @@ public class AlbumRepository {
                 .get();
     }
 
-    // 4. ACTUALIZAR (PUT /api/albums/{id})
+    // PUT /api/albums/{id}
     public long update(Integer id, Album album) {
         return dbClient.execute()
                 .dml("""
@@ -60,9 +60,8 @@ public class AlbumRepository {
                         id);
     }
 
-    // 5. ELIMINAR (DELETE /api/albums/{id})
+    // DELETE /api/albums/{id}
     public long delete(Integer id) {
-        return dbClient.execute()
-                .dml("DELETE FROM albums WHERE id = ?", id);
+        return dbClient.execute().dml("DELETE FROM albums WHERE id = ?", id);
     }
 }

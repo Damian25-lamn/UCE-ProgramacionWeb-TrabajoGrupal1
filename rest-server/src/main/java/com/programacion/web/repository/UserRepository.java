@@ -15,39 +15,58 @@ public class UserRepository {
         this.dbClient = dbClient;
     }
 
-    // 1. OBTENER TODOS LOS USUARIOS (GET /api/users)
+    //GET /api/users
     public List<User> findAll() {
-
         return dbClient.execute()
-                .query("SELECT id, name, username, email, phone, website FROM users")
+                .query("""
+                    SELECT id, name, username, email, phone, website, 
+                           address_street, address_suite, address_city, address_zipcode, 
+                           geo_lat, geo_lng, company_name, company_catch_phrase, company_bs 
+                    FROM users
+                    """)
                 .map(UserMapper::mapRow)
                 .toList();
-
     }
 
-    // 2. BUSCAR POR ID (GET /api/users/{id})
+    //GET /api/users/{id}
     public Optional<User> findById(Integer id) {
         return dbClient.execute()
-                .get("SELECT id, name, username, email, phone, website FROM users WHERE id = ?",
+                .get("""
+                    SELECT id, name, username, email, phone, website, 
+                           address_street, address_suite, address_city, address_zipcode, 
+                           geo_lat, geo_lng, company_name, company_catch_phrase, company_bs 
+                    FROM users WHERE id = ?
+                    """,
                         id
                 )
                 .map(UserMapper::mapRow);
     }
 
-    // 3. INSERTAR UN NUEVO REGISTRO (POST /api/users)
+    //POST /api/users
     public Integer insert(User user) {
         DbRow row = dbClient.execute()
                 .get("""
                     INSERT INTO users
-                    (name, username, email, phone, website)
-                    VALUES (?, ?, ?, ?, ?)
+                    (name, username, email, phone, website, 
+                     address_street, address_suite, address_city, address_zipcode, 
+                     geo_lat, geo_lng, company_name, company_catch_phrase, company_bs)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     RETURNING id
                     """,
                         user.getName(),
                         user.getUsername(),
                         user.getEmail(),
                         user.getPhone(),
-                        user.getWebsite())
+                        user.getWebsite(),
+                        user.getAddress().getStreet(),
+                        user.getAddress().getSuite(),
+                        user.getAddress().getCity(),
+                        user.getAddress().getZipcode(),
+                        user.getAddress().getGeo().getLat(),
+                        user.getAddress().getGeo().getLng(),
+                        user.getCompany().getName(),
+                        user.getCompany().getCatchPhrase(),
+                        user.getCompany().getBs())
                 .orElseThrow(() ->
                         new RuntimeException("No se pudo insertar el usuario"));
 
@@ -56,17 +75,14 @@ public class UserRepository {
                 .get();
     }
 
-    // 4. ACTUALIZAR UN REGISTRO EXISTENTE (PUT /api/users/{id})
-    // Retorna el número de filas afectadas (debe ser 1 si el ID existía)
+    //PUT /api/users/{id}
     public long update(Integer id, User user) {
         return dbClient.execute()
                 .dml("""
                     UPDATE users
-                    SET name = ?,
-                        username = ?,
-                        email = ?,
-                        phone = ?,
-                        website = ?
+                    SET name = ?, username = ?, email = ?, phone = ?, website = ?,
+                        address_street = ?, address_suite = ?, address_city = ?, address_zipcode = ?,
+                        geo_lat = ?, geo_lng = ?, company_name = ?, company_catch_phrase = ?, company_bs = ?
                     WHERE id = ?
                     """,
                         user.getName(),
@@ -74,15 +90,21 @@ public class UserRepository {
                         user.getEmail(),
                         user.getPhone(),
                         user.getWebsite(),
+                        user.getAddress().getStreet(),
+                        user.getAddress().getSuite(),
+                        user.getAddress().getCity(),
+                        user.getAddress().getZipcode(),
+                        user.getAddress().getGeo().getLat(),
+                        user.getAddress().getGeo().getLng(),
+                        user.getCompany().getName(),
+                        user.getCompany().getCatchPhrase(),
+                        user.getCompany().getBs(),
                         id);
     }
 
-    // 5. ELIMINAR UN REGISTRO (DELETE /api/users/{id})
+    //DELETE /api/users/{id}
     public long delete(Integer id) {
         return dbClient.execute()
-                .dml(
-                        "DELETE FROM users WHERE id = ?",
-                        id
-                );
+                .dml("DELETE FROM users WHERE id = ?", id);
     }
 }

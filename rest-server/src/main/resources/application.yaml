@@ -5,11 +5,9 @@ server:
 db:
   source: "jdbc"
   connection:
-    url: "jdbc:postgresql://localhost:5432/DbClient" # Asegúrate de que el puerto apunte a tu PostgreSQL
+    url: "jdbc:postgresql://localhost:5432/DbClient"
     username: "postgres"
-    password: "Uce.2026"
-  statements:
-    # Mapear los Queries nativos para DbClient
-    select-all-users: "SELECT * FROM users"
-    select-user-by-id: "SELECT * FROM users WHERE id = ?"
-    insert-user: "INSERT INTO users(name, username, email, phone, website) VALUES(?, ?, ?, ?, ?) RETURNING id"
+    password: "postgres"
+  hikari:
+    maximum-pool-size: 10
+    minimum-idle: 2

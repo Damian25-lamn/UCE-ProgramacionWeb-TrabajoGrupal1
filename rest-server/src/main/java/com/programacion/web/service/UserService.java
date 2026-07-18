@@ -16,9 +16,7 @@ public class UserService implements HttpService {
     private final UserRepository repository;
 
     public UserService(DbClient dbClient){
-
-        repository=new UserRepository(dbClient);
-
+        this.repository=new UserRepository(dbClient);
     }
 
     @Override
@@ -30,80 +28,53 @@ public class UserService implements HttpService {
         rules.delete("/{id}", this::delete);
     }
 
-    /**
-     * GET /users
-     */
+    // GET /users
     private void findAll(ServerRequest request, ServerResponse response) {
         response.send(repository.findAll());
     }
 
-    /**
-     * GET /users/{id}
-     */
+    // GET /users/{id}
     private void findById(ServerRequest request, ServerResponse response) {
-        try {
-            Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
-            Optional<User> user = repository.findById(id);
+        Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
+        Optional<User> user = repository.findById(id);
 
-            if (user.isPresent()) {
-                response.send(user.get());
-            } else {
-                response.status(Status.NOT_FOUND_404).send();
-            }
-        } catch (NumberFormatException e) {
-            response.status(Status.BAD_REQUEST_400)
-                    .send(new ErrorResponse("El ID debe ser numérico"));
+        if (user.isPresent()) {
+            response.send(user.get());
+        } else {
+            response.status(Status.NOT_FOUND_404).send();
         }
     }
 
-    /**
-     * POST /users
-     */
+    // POST /users
     private void insert(ServerRequest request, ServerResponse response) {
         User user = request.content().as(User.class);
         Integer id = repository.insert(user);
-        // Cumplir rúbrica: Asignar ID y retornar representación completa
         user.setId(id);
         response.status(Status.CREATED_201).send(user);
     }
 
-    /**
-     * PUT /users/{id}
-     */
+    // PUT /users/{id}
     private void update(ServerRequest request, ServerResponse response) {
-        try {
-            Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
-            User user = request.content().as(User.class);
-            long rows = repository.update(id, user);
+        Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
+        User user = request.content().as(User.class);
+        long rows = repository.update(id, user);
 
-            if (rows == 0) {
-                response.status(Status.NOT_FOUND_404).send();
-            } else {
-                // Cumplir rúbrica: Responder HTTP 204 ante actualizaciones exitosas
-                response.status(Status.NO_CONTENT_204).send();
-            }
-        } catch (NumberFormatException e) {
-            response.status(Status.BAD_REQUEST_400)
-                    .send(new ErrorResponse("El ID debe ser numérico"));
+        if (rows == 0) {
+            response.status(Status.NOT_FOUND_404).send();
+        } else {
+            response.status(Status.NO_CONTENT_204).send();
         }
     }
 
-    /**
-     * DELETE /users/{id}
-     */
+    // DELETE /users/{id}
     private void delete(ServerRequest request, ServerResponse response) {
-        try {
-            Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
-            long rows = repository.delete(id);
+        Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
+        long rows = repository.delete(id);
 
-            if (rows == 0) {
-                response.status(Status.NOT_FOUND_404).send();
-            } else {
-                response.status(Status.NO_CONTENT_204).send();
-            }
-        } catch (NumberFormatException e) {
-            response.status(Status.BAD_REQUEST_400)
-                    .send(new ErrorResponse("El ID debe ser numérico"));
+        if (rows == 0) {
+            response.status(Status.NOT_FOUND_404).send();
+        } else {
+            response.status(Status.NO_CONTENT_204).send();
         }
     }
 }

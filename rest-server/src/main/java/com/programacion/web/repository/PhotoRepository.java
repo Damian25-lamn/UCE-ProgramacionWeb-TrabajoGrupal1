@@ -14,7 +14,7 @@ public class PhotoRepository {
         this.dbClient = dbClient;
     }
 
-    // 1. OBTENER TODOS (GET /api/photos)
+    // GET /api/photos
     public List<Photo> findAll() {
         return dbClient.execute()
                 .query("SELECT id, album_id, title, url, thumbnail_url FROM photos")
@@ -22,14 +22,14 @@ public class PhotoRepository {
                 .toList();
     }
 
-    // 2. BUSCAR POR ID (GET /api/photos/{id})
+    // GET /api/photos/{id}
     public Optional<Photo> findById(Integer id) {
         return dbClient.execute()
                 .get("SELECT id, album_id, title, url, thumbnail_url FROM photos WHERE id = ?", id)
                 .map(PhotoMapper::mapRow);
     }
 
-    // 3. INSERTAR (POST /api/photos)
+    // POST /api/photos
     public Integer insert(Photo photo) {
         DbRow row = dbClient.execute()
                 .get("""
@@ -48,7 +48,7 @@ public class PhotoRepository {
                 .get();
     }
 
-    // 4. ACTUALIZAR (PUT /api/photos/{id})
+    // PUT /api/photos/{id}
     public long update(Integer id, Photo photo) {
         return dbClient.execute()
                 .dml("""
@@ -66,7 +66,7 @@ public class PhotoRepository {
                         id);
     }
 
-    // 5. ELIMINAR (DELETE /api/photos/{id})
+    // DELETE /api/photos/{id}
     public long delete(Integer id) {
         return dbClient.execute()
                 .dml("DELETE FROM photos WHERE id = ?", id);

@@ -7,19 +7,24 @@ import io.helidon.webserver.http.ServerResponse;
 
 public class GlobalExceptionHandler {
     public static void handle(ServerRequest request, ServerResponse response, Throwable throwable) {
-        // Log del error real en la consola del servidor para poder depurar
+        //Log del error real en la consola del servidor para poder depurar
         System.err.println("Excepción capturada por el manejador global: " + throwable.getMessage());
         throwable.printStackTrace();
 
-        // 1. Errores de entrada inválida -> HTTP 400
-        if (throwable instanceof NumberFormatException || throwable instanceof IllegalArgumentException) {
+        //Errores de formato numérico en IDs
+        if (throwable instanceof NumberFormatException) {
             response.status(Status.BAD_REQUEST_400)
-                    .send(new ErrorResponse("Entrada inválida o formato incorrecto: " + throwable.getMessage()));
+                    .send(new ErrorResponse("El ID debe ser numérico"));
         }
-        // 2. Errores de persistencia o conexión a la Base de Datos -> HTTP 500
+        //Errores de JSON malformado enviado por el frontend
+        else if (throwable instanceof IllegalArgumentException || throwable.getClass().getName().contains("json")) {
+            response.status(Status.BAD_REQUEST_400)
+                    .send(new ErrorResponse("Formato JSON inválido o campos incorrectos"));
+        }
+        //Fallos de persistencia
         else {
             response.status(Status.INTERNAL_SERVER_ERROR_500)
-                    .send(new ErrorResponse("Fallo en la persistencia o error interno del servidor: " + throwable.getMessage()));
+                    .send(new ErrorResponse("Error interno del servidor o fallo de persistencia"));
         }
     }
 }

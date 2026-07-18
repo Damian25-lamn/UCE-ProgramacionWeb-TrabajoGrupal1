@@ -14,7 +14,7 @@ import java.util.Optional;
 public class PhotoService implements HttpService {
 
     private final PhotoRepository repository;
-    private final AlbumRepository albumRepository; // Para validar FK
+    private final AlbumRepository albumRepository;
 
     public PhotoService(DbClient dbClient) {
         this.repository = new PhotoRepository(dbClient);
@@ -47,7 +47,6 @@ public class PhotoService implements HttpService {
     private void insert(ServerRequest request, ServerResponse response) {
         Photo photo = request.content().as(Photo.class);
 
-        // Validación de FK: albumId debe existir
         if (albumRepository.findById(photo.getAlbumId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("albumId no existe"));
@@ -63,7 +62,6 @@ public class PhotoService implements HttpService {
         Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
         Photo photo = request.content().as(Photo.class);
 
-        // Validación de FK: albumId debe existir
         if (albumRepository.findById(photo.getAlbumId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("albumId no existe"));

@@ -14,7 +14,7 @@ import java.util.Optional;
 public class CommentService implements HttpService {
 
     private final CommentRepository repository;
-    private final PostRepository postRepository; // Para validar FK
+    private final PostRepository postRepository;
 
     public CommentService(DbClient dbClient) {
         this.repository = new CommentRepository(dbClient);
@@ -47,7 +47,6 @@ public class CommentService implements HttpService {
     private void insert(ServerRequest request, ServerResponse response) {
         Comment comment = request.content().as(Comment.class);
 
-        // Validación de FK: postId debe existir
         if (postRepository.findById(comment.getPostId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("postId no existe"));
@@ -63,7 +62,6 @@ public class CommentService implements HttpService {
         Integer id = Integer.parseInt(request.path().pathParameters().get("id"));
         Comment comment = request.content().as(Comment.class);
 
-        // Validación de FK: postId debe existir
         if (postRepository.findById(comment.getPostId()).isEmpty()) {
             response.status(Status.BAD_REQUEST_400)
                     .send(new ErrorResponse("postId no existe"));

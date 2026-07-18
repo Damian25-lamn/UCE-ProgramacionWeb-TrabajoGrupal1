@@ -7,7 +7,7 @@ public class AlbumMapper {
     public static Album mapRow(DbRow row) {
         return new Album(
                 row.column("id").as(Integer.class).get(),
-                row.column("user_id").as(Integer.class).get(), // FK mapeada de la BD
+                row.column("user_id").as(Integer.class).get(),
                 row.column("title").as(String.class).get()
         );
     }

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="05931e0f-5a67-4fc1-9e62-2d8ebacb1e59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Geo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/config/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/config/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/AlbumMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/AlbumMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/CommentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/CommentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/PhotoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/PhotoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/PostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/PostMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/TodoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/TodoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/modelo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/AlbumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/AlbumRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/PhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/PhotoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/TodoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/TodoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/AlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/PhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/TodoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/java/com/programacion/web/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/resources/Creacion_tablas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/resources/Creacion_tablas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/resources/Insercion_datos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/resources/Insercion_datos.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-server/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/rest-server/src/main/resources/application.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;SantiagoVillarreal01&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Damian25-lamn/UCE-ProgramacionWeb-TrabajoGrupal1&quot;,
+    &quot;accountId&quot;: &quot;bf445335-f2f7-43b8-b087-c080b255cb09&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000313811905401" />
+      <entry key="MS500" value="1.1500700616885218" />
+      <entry key="S2" value="2.1929813804471188" />
+      <entry key="S5" value="3.033044598756382" />
+      <entry key="S10" value="3.4720061801775146" />
+      <entry key="S30" value="4.379708688202996" />
+      <entry key="S60" value="5.558743072542258" />
+      <entry key="M2" value="6.890496992094801" />
+      <entry key="M5" value="8.657805034948622" />
+      <entry key="M10" value="10.210357823085577" />
+      <entry key="M15" value="12.441838692085105" />
+      <entry key="M30" value="24.504886178645947" />
+      <entry key="H1" value="50.56462971615249" />
+      <entry key="H2" value="83.75435965134238" />
+      <entry key="H4" value="112.73148376514753" />
+      <entry key="D1" value="148.19705873330815" />
+      <entry key="W1" value="155.70137227708688" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.8409190719361525" />
+      <entry key="MS500" value="1.1071081516195032" />
+      <entry key="S2" value="2.1678098049569745" />
+      <entry key="S5" value="3.0183953209845864" />
+      <entry key="S10" value="3.4634755836806885" />
+      <entry key="S30" value="4.375984788018293" />
+      <entry key="S60" value="5.556288922487198" />
+      <entry key="M2" value="6.888927104422491" />
+      <entry key="M5" value="8.656983241430247" />
+      <entry key="M10" value="10.209862309201593" />
+      <entry key="M15" value="12.441436244169706" />
+      <entry key="M30" value="24.50444643012491" />
+      <entry key="H1" value="50.56393923056726" />
+      <entry key="H2" value="83.75353260484759" />
+      <entry key="H4" value="112.73080066261791" />
+      <entry key="D1" value="148.19688106793436" />
+      <entry key="W1" value="155.70134482569608" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3GbpKuuKWffa4VeWdLpzQzowwQO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.UCE-ProgramacionWeb-TrabajoGrupal1 [:rest-server:com.programacion.web.Main.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mysql_aurora"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.programacion.web.Main" />
+      <module name="TrabajoGrupal.rest-server.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.programacion.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Creacion_tablas.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/rest-server/src/main/resources/Creacion_tablas.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Database Script.Creacion_tablas.sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="05931e0f-5a67-4fc1-9e62-2d8ebacb1e59" name="Changes" comment="" />
+      <created>1784250064751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1784250064751</updated>
+      <workItem from="1784250070186" duration="11401000" />
+      <workItem from="1784321853816" duration="4735000" />
+      <workItem from="1784328447005" duration="12315000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

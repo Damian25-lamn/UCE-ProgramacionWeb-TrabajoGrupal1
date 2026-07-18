@@ -14,7 +14,7 @@ public class CommentRepository {
         this.dbClient = dbClient;
     }
 
-    // 1. OBTENER TODOS (GET /api/comments)
+    // GET /api/comments
     public List<Comment> findAll() {
         return dbClient.execute()
                 .query("SELECT id, post_id, name, email, body FROM comments")
@@ -22,14 +22,14 @@ public class CommentRepository {
                 .toList();
     }
 
-    // 2. BUSCAR POR ID (GET /api/comments/{id})
+    // GET /api/comments/{id}
     public Optional<Comment> findById(Integer id) {
         return dbClient.execute()
                 .get("SELECT id, post_id, name, email, body FROM comments WHERE id = ?", id)
                 .map(CommentMapper::mapRow);
     }
 
-    // 3. INSERTAR (POST /api/comments)
+    // POST /api/comments
     public Integer insert(Comment comment) {
         DbRow row = dbClient.execute()
                 .get("""
@@ -48,7 +48,7 @@ public class CommentRepository {
                 .get();
     }
 
-    // 4. ACTUALIZAR (PUT /api/comments/{id})
+    // PUT /api/comments/{id}
     public long update(Integer id, Comment comment) {
         return dbClient.execute()
                 .dml("""
@@ -66,7 +66,7 @@ public class CommentRepository {
                         id);
     }
 
-    // 5. ELIMINAR (DELETE /api/comments/{id})
+    // DELETE /api/comments/{id}
     public long delete(Integer id) {
         return dbClient.execute()
                 .dml("DELETE FROM comments WHERE id = ?", id);

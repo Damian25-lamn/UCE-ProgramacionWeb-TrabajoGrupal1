@@ -19,5 +19,7 @@ public class User {
     private String email;
     private String phone;
     private String website;
+    private Address address;
+    private Company company;
 
 }
