@@ -94,8 +94,36 @@ src/
 ```
 ### Frontend (React + TypeScript)
 ```text
-
-
+src/
+├── componentes/
+│   ├── formularios/
+        └── (Formularios: FormularioUsuario.tsx, FormularioPost.tsx, FormularioComentario.tsx, FormularioAlbum.tsx, FormularioFoto.tsx, FormularioTodo.tsx)
+│   └── tablas/
+        └── (Tablas: TablaUsuarios.tsx, TablaPosts.tsx, TablaComentarios.tsx, TablaAalbum.tsx, TablaFotos.tsx, TablaTodos.tsx)
+├── features/
+│   └── (Slices de Redux: albumSlice.ts, userSlice.ts, postSlice.ts, commentSlice.ts, photoSlice.ts, todoSlice.ts)
+├── hooks/
+│   └── hooks.ts
+├── layout/
+│   └── MainLayout.tsx
+├── modelo/
+│   ├── user-componentes/
+        └── (Interfaces Internas de Usuario: Geo.ts, Address.ts, Company.ts)
+│   └── (Interfaces: Album.ts, Comment.ts, Photo.ts, Post.ts, Todo.ts, User.ts)
+├── paginas/
+│   ├── paginas-detalle/
+        └── (UsuarioDetalle.tsx, PostDetalle.tsx, ComentarioDetalle.tsx, AlbumDetalle.tsx, FotoDetalle.tsx, TodoDetalle.tsx)
+│   └── (Dashboard.tsx, Usuarios.tsx, Posts.tsx, Comments.tsx, Albums.tsx, Fotos.tsx, Todos.tsx)
+├── rutas/
+│   └── AppRouter.tsx
+├── store/
+│   └── store.ts
+├── ui-temas/
+│   └── tema.ts
+├── App.css
+├── App.tsx
+├── index.css
+└── main.tsx
 ```
 
 ##  Transcripción de Pruebas de los Endpoints del Backend 
@@ -691,12 +719,109 @@ Esta sección documenta  5 operaciones CRUD gestionar Todos:
     (El servidor responde con estado exitoso 204 sin cuerpo de texto)
     ```
 
-## App Web ejecutando las operaciones CRUD 
+## App Web ejecutando las operaciones CRUD
 
+A continuación se presentan las evidencias de la aplicación React (Frontend) consumiendo la API REST desarrollada con Helidon SE mediante Redux Toolkit para la gestión centralizada del estado.
 
+# 1. Entidad: Usuarios
 
+### 1.1 Listar Usuarios (READ)
 
+*Muestra la tabla principal con todos los usuarios registrados.*
 
+![Listado de Usuarios](./img/usuarios-read.png)
+
+### 1.2 Buscar Usuario por ID (READ)
+
+*Muestra la vista de detalle de un usuario seleccionado.*
+
+![Detalle de Usuario](./img/usuarios-read-id.png)
+
+### 1.3 Crear Usuario (CREATE)
+
+*Formulario para registrar un nuevo usuario.*
+
+![Crear Usuario](./img/usuarios-create.png)
+
+### 1.4 Actualizar Usuario (UPDATE)
+
+*Formulario de edición de un usuario existente.*
+
+![Actualizar Usuario](./img/usuarios-update.png)
+
+### 1.5 Eliminar Usuario (DELETE)
+
+*Confirmación y resultado de la eliminación de un usuario.*
+
+![Eliminar Usuario](./img/usuarios-delete.png)
+
+---
+
+# 2. Entidad: Publicaciones (Posts)
+
+### 2.1 Listar Publicaciones (READ)
+
+*Muestra la tabla principal con todas las publicaciones registradas.*
+
+![Listado de Posts](./img/posts-read.png)
+
+### 2.2 Buscar Publicación por ID (READ)
+
+*Muestra la vista de detalle de una publicación seleccionada.*
+
+![Detalle de Post](./img/posts-read-id.png)
+
+### 2.3 Crear Publicación (CREATE)
+
+*Formulario para registrar una nueva publicación.*
+
+![Crear Post](./img/posts-create.png)
+
+### 2.4 Actualizar Publicación (UPDATE)
+
+*Formulario de edición de una publicación existente.*
+
+![Actualizar Post](./img/posts-update.png)
+
+### 2.5 Eliminar Publicación (DELETE)
+
+*Confirmación y resultado de la eliminación de una publicación.*
+
+![Eliminar Post](./img/posts-delete.png)
+
+---
+
+# 3. Entidad: Fotos (Photos)
+
+### 3.1 Listar Fotos (READ)
+
+*Muestra la tabla principal con todos los fotos registrados.*
+
+![Listado de Fotos](./img/fotos-read.png)
+
+### 3.2 Buscar Foto por ID (READ)
+
+*Muestra la imagen de una foto seleccionada.*
+
+![Detalle de Foto](./img/fotos-read-id.png)
+
+### 3.3 Crear Foto (CREATE)
+
+*Formulario para registrar un nueva foto.*
+
+![Crear Foto](./img/fotos-create.png)
+
+### 3.4 Actualizar Foto (UPDATE)
+
+*Formulario de edición de una foto existente.*
+
+![Actualizar Foto](./img/fotos-update.png)
+
+### 3.5 Eliminar Foto (DELETE)
+
+*Confirmación y resultado de la eliminación de una foto.*
+
+![Eliminar Foto](./img/fotos-delete.png)
 
 ## Instrucciones de Ejecución del Proyecto
 
@@ -774,8 +899,6 @@ Abre esta dirección en el navegador para acceder a la interfaz web.
 2. Backend Helidon SE → `./gradlew run`
 3. Dependencias React → `npm install`
 4. Frontend Vite → `npm run dev`
-
-
 
 
 
