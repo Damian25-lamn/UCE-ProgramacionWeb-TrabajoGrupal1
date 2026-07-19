@@ -5,7 +5,7 @@
 ## 👥 Integrantes
 *   **Mouaaz Alammarin** - Cédula: 1758008781
 *   **Damian Minda** - Cédula: 1724637119
-*   **Francis Pulles** - Cédula: 
+*   **Francis Pulles** - Cédula: 1004759120
 *   **Santiago Villarreal** - Cédula: 1724486921
 
 ---
