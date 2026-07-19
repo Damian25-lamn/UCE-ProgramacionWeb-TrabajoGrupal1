@@ -94,8 +94,36 @@ src/
 ```
 ### Frontend (React + TypeScript)
 ```text
-
-
+src/
+├── componentes/
+│   ├── formularios/
+        └── (Formularios: FormularioUsuario.tsx, FormularioPost.tsx, FormularioComentario.tsx, FormularioAlbum.tsx, FormularioFoto.tsx, FormularioTodo.tsx)
+│   └── tablas/
+        └── (Tablas: TablaUsuarios.tsx, TablaPosts.tsx, TablaComentarios.tsx, TablaAalbum.tsx, TablaFotos.tsx, TablaTodos.tsx)
+├── features/
+│   └── (Slices de Redux: albumSlice.ts, userSlice.ts, postSlice.ts, commentSlice.ts, photoSlice.ts, todoSlice.ts)
+├── hooks/
+│   └── hooks.ts
+├── layout/
+│   └── MainLayout.tsx
+├── modelo/
+│   ├── user-componentes/
+        └── (Interfaces Internas de Usuario: Geo.ts, Address.ts, Company.ts)
+│   └── (Interfaces: Album.ts, Comment.ts, Photo.ts, Post.ts, Todo.ts, User.ts)
+├── paginas/
+│   ├── paginas-detalle/
+        └── (UsuarioDetalle.tsx, PostDetalle.tsx, ComentarioDetalle.tsx, AlbumDetalle.tsx, FotoDetalle.tsx, TodoDetalle.tsx)
+│   └── (Dashboard.tsx, Usuarios.tsx, Posts.tsx, Comments.tsx, Albums.tsx, Fotos.tsx, Todos.tsx)
+├── rutas/
+│   └── AppRouter.tsx
+├── store/
+│   └── store.ts
+├── ui-temas/
+│   └── tema.ts
+├── App.css
+├── App.tsx
+├── index.css
+└── main.tsx
 ```
 
 ##  Transcripción de Pruebas de los Endpoints del Backend 
